@@ -74,6 +74,9 @@ class VLCClient:
             "0",
             "--video-on-top",
             "--no-video-title",
+            "--volume-save",
+            "--no-loop",
+            "--no-repeat",
             "--mouse-hide-timeout",
             "0",
         ]
@@ -86,6 +89,9 @@ class VLCClient:
                 "--macosx-continue-playback",
                 "0",
             ]
+        else:
+                self.cmd_base += ["--intf", "dummy"]
+
         if self.qrcode and self.url:
             self.cmd_base += self.get_marquee_cmd()
 
